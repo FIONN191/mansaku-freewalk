@@ -1,6 +1,6 @@
 {
   "name": "freewalk-helper",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "漫展自由行申请助手：三平台（小红书/抖音/QQ空间）自动发布",
   "main": "main.js",
   "author": "Fionn",
@@ -38,7 +38,8 @@
         }
       ],
       "artifactName": "Freewalk-Helper-${version}-mac.${ext}",
-      "category": "public.app-category.productivity"
+      "category": "public.app-category.productivity",
+      "icon": "build/icon.icns"
     },
     "win": {
       "target": [
@@ -49,7 +50,8 @@
           ]
         }
       ],
-      "artifactName": "Freewalk-Helper-Setup-${version}-win-x64.${ext}"
+      "artifactName": "Freewalk-Helper-Setup-${version}-win-x64.${ext}",
+      "icon": "build/icon.ico"
     },
     "nsis": {
       "oneClick": false,

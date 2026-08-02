@@ -8,7 +8,6 @@ proof/
 node_modules/
 app/release/
 dist/
-build/
 *.dmg
 *.exe
 *.blockmap

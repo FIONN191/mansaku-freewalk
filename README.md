@@ -34,15 +34,19 @@ Windows 被 SmartScreen 拦时点「更多信息 →仍要运行」。
 App 之外还有一套纯脚本流程，用来生成待发布的文案+图片目录：
 
 ```bash
-cp templates/con.example.yaml out/2026-01_某展/con.yaml   # 填展会信息
-python3 scripts/make_application.py out/2026-01_某展/con.yaml
+mkdir -p out/2026-01_某展
+cp templates/event.example.yaml out/2026-01_某展/event.yaml   # 填展会信息
+python3 scripts/make_application.py out/2026-01_某展/event.yaml
 ```
+
+脚本吃的是你传给它的那个路径，文件叫什么都行（旧的 `con.yaml` 照样能跑；
+但别在 Windows 上用 `con` 这个名字，它是系统保留设备名）。
 
 生成结果：
 
 ```
 out/<年月_漫展名>/
-├── con.yaml       # 该展信息（场馆/日期/门槛/官图路径）
+├── event.yaml     # 该展信息（场馆/日期/门槛/官图路径）
 ├── posts/         # 小红书标题+正文、抖音、QQ空间 三份文案
 ├── images/        # 官图，字节级复制 + md5 校验
 ├── submit/        # 提交用作品集

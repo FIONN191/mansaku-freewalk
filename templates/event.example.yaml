@@ -1,6 +1,6 @@
 # 单场漫展的申请配置模板
-# 用法：复制到 out/<年月_漫展名>/con.yaml 填好，再跑
-#   python3 scripts/make_application.py out/<年月_漫展名>/con.yaml
+# 用法：复制到 out/<年月_漫展名>/event.yaml 填好，再跑
+#   python3 scripts/make_application.py out/<年月_漫展名>/event.yaml
 
 漫展名称: 某某漫展某站
 批次: 第一批

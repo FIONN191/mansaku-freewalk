@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """生成漫展自由行申请包：三平台文案 + 官图字节级复制（不压缩、锁定顺序）。
 
-用法:  python3 make_application.py <漫展目录>/con.yaml
+用法:  python3 make_application.py <漫展目录>/event.yaml
 输出:  <漫展目录>/posts/*.txt  <漫展目录>/images/NN_*.ext  <漫展目录>/CHECKLIST.md
 """
 import hashlib
@@ -80,7 +80,7 @@ def main(con_file: str) -> None:
             src = Path(src_str)
             copy_verbatim(src, root / "images" / f"{i:02d}_{name}{src.suffix}")
         if missing:
-            print(f"[待补] 缺少官图: {'、'.join(missing)}（补齐 con.yaml 后重跑）")
+            print(f"[待补] 缺少官图: {'、'.join(missing)}（补齐配置后重跑）")
 
     # 提交申请用的作品集
     portfolio = con.get("作品集目录", "")

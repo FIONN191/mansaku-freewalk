@@ -1,0 +1,21 @@
+# —— 个人数据，绝不入库 ——
+config.yaml
+out/
+proof/
+*.local.json
+
+# —— 依赖与构建产物 ——
+node_modules/
+app/release/
+dist/
+build/
+*.dmg
+*.exe
+*.blockmap
+
+# —— 杂项 ——
+.DS_Store
+*.log
+logs/
+__pycache__/
+*.pyc

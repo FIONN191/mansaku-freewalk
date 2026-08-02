@@ -1,0 +1,56 @@
+name: build-installers
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to attach the installers to (e.g. v0.2.1)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            platform: mac
+            pattern: release/Freewalk-Helper-*-mac.dmg
+            asset: Freewalk-Helper-mac.dmg
+          - os: windows-latest
+            platform: win
+            pattern: release/Freewalk-Helper-Setup-*-win-x64.exe
+            asset: Freewalk-Helper-win-x64.exe
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build installer
+        run: npx electron-builder --${{ matrix.platform }}
+
+      - name: Rename artifact
+        shell: bash
+        run: mv ${{ matrix.pattern }} ${{ matrix.asset }}
+
+      - name: Upload to release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ github.event.release.tag_name || inputs.tag }}"
+          gh release upload "$TAG" ${{ matrix.asset }} --clobber

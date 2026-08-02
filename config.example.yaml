@@ -1,0 +1,25 @@
+# 漫展自由行申请 — 全局配置模板
+# 复制成 config.yaml 后填自己的信息；config.yaml 已在 .gitignore 里，不会被提交。
+
+profile:
+  cn: 你的CN
+  category: 摄影            # 自由行类别：摄影 / cos / 写手 …
+  device: 你的器材           # 如：相机型号
+  regions: 城市A, 城市B      # 关注的漫展城市
+
+platforms:
+  # 换成自己的主页/发布页地址
+  xiaohongshu_profile: https://www.xiaohongshu.com/user/profile/<你的用户ID>
+  xiaohongshu_publish: https://creator.xiaohongshu.com/publish/publish?source=official
+  douyin_publish: https://creator.douyin.com/creator-micro/home
+  qzone_profile: https://user.qzone.qq.com/<你的QQ号>/infocenter
+
+rules:
+  # 三张官图，三平台顺序必须一致
+  official_image_order: 01_漫展主图, 02_嘉宾合照图, 03_自由行海报
+  # 图片只做字节级复制（cp + md5 校验），绝不转码/缩放/压缩
+  never_recompress: true
+  # 提交申请用的个人作品集（修图后成片）目录，填绝对路径
+  portfolio_dir: /path/to/你的作品集
+  # 互动量（点赞/评论）必须由真人完成，本工具不做刷量
+  engagement: 真人互助（#互赞 话题 + 漫展群转发）

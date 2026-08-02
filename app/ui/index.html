@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>漫展自由行助手</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font: 13px/1.6 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+         width: 400px; height: 100vh; overflow-y: auto; background: #16181d; color: #e8e8ea; padding: 14px; }
+  h1 { font-size: 15px; margin-bottom: 10px; } h2 { font-size: 13px; margin: 14px 0 6px; color: #9aa0ab; }
+  .tabs { display: flex; gap: 6px; }
+  .tabs button { flex: 1; }
+  button { background: #2a2e37; color: #e8e8ea; border: 1px solid #3a3f4b; border-radius: 6px;
+           padding: 6px 10px; cursor: pointer; font-size: 13px; }
+  button:hover { background: #353b47; }
+  button.primary { background: #e0334b; border-color: #e0334b; font-weight: 600; }
+  button.primary:hover { background: #f04760; }
+  input[type=text], textarea, select { width: 100%; background: #1e2128; color: #e8e8ea; border: 1px solid #3a3f4b;
+           border-radius: 6px; padding: 5px 8px; margin: 2px 0 6px; font-size: 13px; font-family: inherit; }
+  textarea { resize: vertical; }
+  .miniapps { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin: 4px 0 8px; }
+  .mini-label { color: #9aa0ae; font-size: 12px; min-width: 30px; }
+  .chip { padding: 3px 10px; font-size: 12px; border-radius: 12px; }
+
+  /* —— 小红书式可视化编辑器 —— */
+  .editor { background: #1e2128; border: 1px solid #3a3f4b; border-radius: 10px; padding: 10px; margin-top: 6px; }
+  .ed-sec { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+  .ed-label { font-weight: 600; font-size: 13px; }
+  .ed-count { font-size: 11px; color: #9aa0ae; }
+  .ed-sub { font-size: 11px; color: #6b7280; margin: 0 0 6px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 2px; }
+  .tile { position: relative; width: 72px; height: 72px; border-radius: 6px; overflow: hidden; flex: none; }
+  .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tile .del { position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; line-height: 16px;
+    text-align: center; background: rgba(0,0,0,.7); border-radius: 50%; cursor: pointer; font-size: 11px; color: #fff; }
+  .tile .del:hover { background: #e0334b; }
+  .tile .ord { position: absolute; top: 2px; left: 2px; background: rgba(0,0,0,.7); border-radius: 4px;
+    padding: 0 5px; font-size: 10px; color: #fff; }
+  .tile.add { border: 1.5px dashed #4a5060; display: flex; align-items: center; justify-content: center;
+    font-size: 26px; color: #6b7280; cursor: pointer; background: #181b21; }
+  .tile.add:hover { border-color: #e0334b; color: #e0334b; }
+  .cnt { font-size: 10px; color: #6b7280; text-align: right; margin: -4px 2px 4px; }
+  .editor input[type=text], .editor textarea { background: #16181d; }
+  #ed_title { font-size: 14px; font-weight: 600; }
+
+  label { color: #9aa0ab; font-size: 12px; }
+  .row { display: flex; gap: 8px; } .row > div { flex: 1; }
+  .check { display: flex; align-items: center; gap: 6px; margin: 4px 0; color: #e8e8ea; font-size: 13px; }
+  #log { background: #0d0f12; border: 1px solid #3a3f4b; border-radius: 6px; padding: 8px; height: 200px;
+         overflow-y: auto; white-space: pre-wrap; font-size: 12px; color: #9fd89f; margin-top: 6px; }
+  details { margin-top: 8px; } summary { cursor: pointer; color: #9aa0ab; }
+  .hint { font-size: 11px; color: #6b7280; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <h1 style="display:flex;justify-content:space-between;align-items:center">🎪 漫展自由行助手
+    <button id="relaunch" title="Claude 改完代码后点这里，立即加载最新版">♻️ 重启应用</button>
+  </h1>
+
+  <h2>① 平台（右侧登录，登录态永久保存）</h2>
+  <div class="tabs">
+    <button data-pf="xhs">小红书</button>
+    <button data-pf="douyin">抖音</button>
+    <button data-pf="qzone">QQ空间</button>
+  </div>
+
+  <h2>② 个人资料</h2>
+  <div class="row">
+    <div><label>CN</label><input type="text" id="cn" placeholder="你的 CN"></div>
+    <div><label>设备</label><input type="text" id="device" placeholder="如：相机型号"></div>
+  </div>
+  <label>QQ号（QQ空间发布用）</label><input type="text" id="qq" placeholder="你的 QQ 号">
+  <p class="hint">填一次即可，只保存在本机 userData/profile.json，不随代码分发。</p>
+
+  <h2>③ 申请包</h2>
+  <div style="display:flex;gap:6px;align-items:flex-start">
+    <select id="pkgSelect" style="flex:1"></select>
+    <button id="newPkgBtn" title="清空编辑器，开始一个新申请包">＋ 新建</button>
+    <button id="delPkg" title="删除当前选中的申请包">🗑</button>
+  </div>
+
+  <div class="editor">
+    <div class="ed-sec"><span class="ed-label">图片编辑</span><span class="ed-count" id="imgCount">0/18</span></div>
+    <div class="grid" id="officialGrid"></div>
+    <p class="ed-sub">官图 · 点 ➕ 添加，点 ✕ 移除，发布时排在前面</p>
+    <div class="grid" id="sceneGrid"></div>
+    <p class="ed-sub">场照 · 排在官图之后</p>
+
+    <input type="text" id="ed_title" maxlength="20" placeholder="填写标题会有更多赞哦">
+    <div class="cnt" id="titleCnt">0/20</div>
+    <textarea id="ed_body" rows="8" placeholder="输入正文描述，想怎么写就怎么写，原样发布"></textarea>
+    <div class="cnt" id="bodyCnt">0/1000</div>
+    <input type="text" id="ed_topics" placeholder="# 话题（空格或逗号分隔，发布时按平台联想插入）">
+    <input type="text" id="ed_name" placeholder="申请包名称（列表显示用，如：oioi重庆 摄影申请）">
+
+    <details id="tmplBox">
+      <summary>📋 用模板生成文案（可选，生成后填入上方可再改）</summary>
+      <div class="row">
+        <div><label>漫展名称</label><input type="text" id="f_name" placeholder="oioiParty重庆站"></div>
+        <div><label>批次</label><input type="text" id="f_batch" placeholder="第一批"></div>
+      </div>
+      <div class="row">
+        <div><label>城市</label><input type="text" id="f_city" placeholder="重庆"></div>
+        <div><label>场馆</label><input type="text" id="f_venue" placeholder="南坪国际会展中心"></div>
+      </div>
+      <div class="row">
+        <div><label>展期</label><input type="text" id="f_dates" placeholder="2026.8.8-2026.8.9"></div>
+        <div><label>申请日期</label><input type="text" id="f_apply" placeholder="8.8-8.9 两日"></div>
+      </div>
+      <label>最期待内容</label><input type="text" id="f_expect" placeholder="500平超大实景棚和嘉宾T台秀">
+      <div class="row">
+        <div><label>需要赞</label><input type="text" id="f_likes" value="30"></div>
+        <div><label>需要评论</label><input type="text" id="f_comments" value="15"></div>
+      </div>
+      <button id="genTmpl" style="width:100%">生成文案 → 填入上方</button>
+    </details>
+
+    <div style="display:flex;gap:6px;margin-top:8px">
+      <button class="primary" id="savePkg" style="flex:1">💾 保存申请包</button>
+      <button id="saveAsPkg" title="以当前编辑器内容另存为一个新包">另存为新包</button>
+    </div>
+    <p class="hint">图片原样复制、全程不压缩；顺序＝官图在前场照在后，三平台一致；小红书单帖上限 18 张。</p>
+  </div>
+
+  <h2>④ 发布</h2>
+  <div class="check"><input type="checkbox" id="p_xhs" checked><label for="p_xhs">小红书</label></div>
+  <div class="check"><input type="checkbox" id="p_douyin" checked><label for="p_douyin">抖音</label></div>
+  <div class="check"><input type="checkbox" id="p_qzone" checked><label for="p_qzone">QQ空间</label></div>
+  <div class="check"><input type="checkbox" id="confirm"><label for="confirm">发布前暂停，由我人工点最后一下</label></div>
+  <div style="display:flex;gap:6px">
+    <button class="primary" id="run" style="flex:1">🚀 一键发布</button>
+    <button id="pauseBtn" title="暂停/继续发布进程">⏸ 暂停</button>
+    <button id="abortBtn" title="终止本次发布">⏹ 终止</button>
+  </div>
+  <p class="hint">互动量（赞/评论）请走 #互赞 话题和漫展群真人互助，本工具不含刷量功能。</p>
+
+  <h2>⑤ 小程序快捷入口（提交申请用）</h2>
+  <p class="hint">点击 = 复制小程序链接/名称 + 拉起客户端；链接贴到「文件传输助手」发送后点卡片直达。</p>
+  <div class="miniapps" data-host="wechat">
+    <span class="mini-label">微信</span>
+    <button class="chip" data-name="逛展展">逛展展</button>
+    <button class="chip" data-name="漫星" data-token="#小程序://漫星/vpWgt6pl4EoTM6G">漫星</button>
+    <button class="chip" data-name="次元漫展" data-token="#小程序://次元漫展/SYNCXZQuevwUCFj">次元漫展</button>
+    <button class="chip" data-name="标记酱漫展报名" data-token="#小程序://标记酱漫展报名/nW4kQhJjbNCDjWp">标记酱</button>
+    <button class="chip" data-name="标记酱·自由行" data-token="#小程序://标记酱漫展报名/自由行/hGP4DO3oMkOrvVj">标记酱·自由行</button>
+    <button class="chip" data-name="oioi party" data-token="#小程序://oioi/8nj0q8gLGNJAyKk">oioi party</button>
+    <button class="chip" id="copyAllTokens" title="一次复制全部小程序链接，逐行发到文件传输助手做成常驻启动器">📋 全部链接</button>
+  </div>
+  <div class="miniapps" data-host="qq">
+    <span class="mini-label">QQ</span>
+    <button class="chip" data-name="漫星">漫星</button>
+    <button class="chip" data-name="次元漫展">次元漫展</button>
+    <button class="chip" data-name="标记酱漫展报名">标记酱漫展报名</button>
+  </div>
+  <div id="log">就绪。先在右侧登录三个平台，再选申请包发布。</div>
+
+<script>
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  // —— 编辑器状态：按发布顺序的图片绝对路径（包内旧图/新增图混用） ——
+  let edOfficial = [];
+  let edScene = [];
+  let editingId = null;
+
+  const currentProfile = () => ({ cn: $('#cn').value, device: $('#device').value, qq: $('#qq').value });
+
+  // —— 个人资料：启动时从本机 userData 读回，改完即存（源码里不带任何真实资料） ——
+  async function initProfile() {
+    const p = await fw.getProfile();
+    $('#cn').value = p.cn || '';
+    $('#device').value = p.device || '';
+    $('#qq').value = p.qq || '';
+  }
+  ['#cn', '#device', '#qq'].forEach((s) =>
+    $(s).addEventListener('change', () => fw.setProfile(currentProfile())));
+
+  document.querySelectorAll('.tabs button').forEach((b) =>
+    b.addEventListener('click', () => fw.showPlatform(b.dataset.pf)));
+  $('#relaunch').addEventListener('click', () => fw.relaunch());
+
+  // —— 图片网格（实时渲染，➕ 添加 / ✕ 移除） ——
+  function tile(f, label, group, idx) {
+    return `<div class="tile"><img src="file://${encodeURI(f)}">
+      <span class="ord">${esc(label)}</span>
+      <span class="del" data-g="${group}" data-i="${idx}" title="移除">✕</span></div>`;
+  }
+  function renderGrids() {
+    $('#officialGrid').innerHTML =
+      edOfficial.map((f, i) => tile(f, i + 1, 'o', i)).join('') +
+      `<div class="tile add" id="addOfficial" title="添加官图">＋</div>`;
+    $('#sceneGrid').innerHTML =
+      edScene.map((f, i) => tile(f, '场' + (i + 1), 's', i)).join('') +
+      `<div class="tile add" id="addScene" title="添加场照">＋</div>`;
+    const total = edOfficial.length + edScene.length;
+    $('#imgCount').textContent = `${total}/18`;
+    $('#imgCount').style.color = total > 18 ? '#e0334b' : '#9aa0ae';
+    $('#addOfficial').addEventListener('click', async () => {
+      edOfficial.push(...await fw.pickImages('official')); renderGrids();
+    });
+    $('#addScene').addEventListener('click', async () => {
+      edScene.push(...await fw.pickImages('scene')); renderGrids();
+    });
+    document.querySelectorAll('.tile .del').forEach((d) =>
+      d.addEventListener('click', () => {
+        (d.dataset.g === 'o' ? edOfficial : edScene).splice(Number(d.dataset.i), 1);
+        renderGrids();
+      }));
+  }
+
+  // —— 字数实时统计 ——
+  const updateCnt = () => {
+    $('#titleCnt').textContent = `${$('#ed_title').value.length}/20`;
+    $('#bodyCnt').textContent = `${$('#ed_body').value.length}/1000`;
+  };
+  ['#ed_title', '#ed_body'].forEach((s) => $(s).addEventListener('input', updateCnt));
+
+  // —— 载入 / 清空编辑器 ——
+  async function loadPackage(id) {
+    if (!id) { clearEditor(); return; }
+    const p = await fw.previewPackage({ id, profile: currentProfile() });
+    editingId = id;
+    edOfficial = p.imageFiles || [];
+    edScene = p.sceneFiles || [];
+    $('#ed_name').value = p.name || '';
+    // 老的模板包载入时物化成可编辑文本，保存后统一为自定义模式
+    $('#ed_title').value = p.mode === 'custom' ? (p.customTitle || '') : (p.texts.title || '');
+    $('#ed_body').value = p.mode === 'custom' ? (p.customBody || '') : (p.texts.body || '');
+    $('#ed_topics').value = (p.topics || []).join(' ');
+    renderGrids(); updateCnt();
+  }
+  function clearEditor() {
+    editingId = null;
+    edOfficial = []; edScene = [];
+    ['#ed_name', '#ed_title', '#ed_body', '#ed_topics'].forEach((s) => { $(s).value = ''; });
+    renderGrids(); updateCnt();
+  }
+
+  async function refreshPkgs(selectId) {
+    const pkgs = await fw.listPackages();
+    $('#pkgSelect').innerHTML = pkgs.length
+      ? pkgs.map((p) => `<option value="${p.id}">${esc(p.name)}${esc(p.batch || '')}（${p.images.length}官图+${(p.scenePhotos || []).length}场照）</option>`).join('')
+      : '<option value="">（点「＋ 新建」开始）</option>';
+    if (selectId) $('#pkgSelect').value = selectId;
+    await loadPackage($('#pkgSelect').value);
+  }
+
+  // —— 保存 / 另存 / 新建 / 删除 ——
+  async function doSave(asNew) {
+    if (!edOfficial.length) return alert('至少添加一张官图');
+    if (edOfficial.length + edScene.length > 18) return alert('小红书单帖上限 18 张，请减少图片');
+    if (!$('#ed_title').value && !$('#ed_body').value) return alert('标题或正文至少填一个');
+    const data = {
+      mode: 'custom',
+      name: $('#ed_name').value || $('#ed_title').value || '申请包',
+      batch: '',
+      customTitle: $('#ed_title').value,
+      customBody: $('#ed_body').value,
+      topics: $('#ed_topics').value.split(/[,，\s]+/).map((s) => s.replace(/^#+/, '').trim()).filter(Boolean),
+    };
+    const id = await fw.savePackageFull({ id: asNew ? null : editingId, data, images: edOfficial, scenes: edScene });
+    await refreshPkgs(id);
+  }
+  $('#savePkg').addEventListener('click', () => doSave(false));
+  $('#saveAsPkg').addEventListener('click', () => doSave(true));
+  $('#newPkgBtn').addEventListener('click', clearEditor);
+  $('#delPkg').addEventListener('click', async () => {
+    const id = $('#pkgSelect').value;
+    if (!id) return;
+    const name = $('#pkgSelect').selectedOptions[0].textContent;
+    if (!confirm(`确定删除申请包「${name}」？只删除包内图片副本，原始图片文件不受影响。`)) return;
+    await fw.deletePackage(id);
+    clearEditor();
+    await refreshPkgs();
+  });
+  $('#pkgSelect').addEventListener('change', () => loadPackage($('#pkgSelect').value));
+
+  // —— 模板生成文案（本地生成，填入编辑器后可继续改） ——
+  $('#genTmpl').addEventListener('click', () => {
+    const v = (s) => $(s).value.trim();
+    if (!v('#f_name')) return alert('先填漫展名称');
+    const p = currentProfile();
+    if (!p.cn || !p.device) return alert('先在「② 个人资料」填好 CN 和设备');
+    $('#ed_title').value = `${v('#f_name')}自由行申请`.slice(0, 20);
+    $('#ed_body').value =
+`${v('#f_name')}${v('#f_batch')}自由行申请
+${v('#f_city')}·${v('#f_venue')}
+${v('#f_dates')} 我们不见不散！
+
+CN: ${p.cn}
+申请自由行类别: 摄影
+申请日期: ${v('#f_apply')}
+摄影设备: ${p.device}
+
+本次我最期待在${v('#f_name')}打卡的内容是: ${v('#f_expect')}
+
+需要${v('#f_likes')}👍+${v('#f_comments')}🍎 谢谢老大们！`;
+    if (!$('#ed_topics').value) {
+      $('#ed_topics').value = [v('#f_city') && v('#f_city') + '漫展', '互赞', '自由行', '漫展摄影']
+        .filter(Boolean).join(' ');
+    }
+    if (!$('#ed_name').value) $('#ed_name').value = `${v('#f_name')}${v('#f_batch')}`;
+    $('#tmplBox').open = false;
+    updateCnt();
+  });
+
+  // —— 发布 ——
+  $('#run').addEventListener('click', async () => {
+    const packageId = $('#pkgSelect').value;
+    if (!packageId) return alert('请先新建/选择申请包');
+    const platforms = ['xhs', 'douyin', 'qzone'].filter((id) => $('#p_' + id).checked);
+    if (!platforms.length) return alert('至少勾选一个平台');
+    if (platforms.includes('qzone') && !$('#qq').value.trim())
+      return alert('QQ空间发布需要 QQ 号，请先在「② 个人资料」填写');
+    $('#run').disabled = true;
+    try {
+      await fw.runPublish({
+        packageId, platforms,
+        profile: currentProfile(),
+        confirmBeforeSubmit: $('#confirm').checked,
+      });
+    } finally { $('#run').disabled = false; }
+  });
+
+  fw.onLog((msg) => {
+    const el = $('#log');
+    el.textContent += '\n' + msg;
+    el.scrollTop = el.scrollHeight;
+  });
+
+  document.querySelectorAll('.miniapps .chip:not(#copyAllTokens)').forEach((b) =>
+    b.addEventListener('click', () =>
+      fw.openMiniapp({ host: b.closest('.miniapps').dataset.host, name: b.dataset.name, token: b.dataset.token || '' })));
+  $('#copyAllTokens').addEventListener('click', () => {
+    const tokens = [...document.querySelectorAll('.miniapps .chip[data-token]')]
+      .map((b) => b.dataset.token).join('\n');
+    fw.openMiniapp({ host: 'wechat', name: '全部小程序链接', token: tokens, all: true });
+  });
+
+  let paused = false;
+  $('#pauseBtn').addEventListener('click', async () => {
+    paused = !paused;
+    await fw.pausePublish(paused);
+    $('#pauseBtn').textContent = paused ? '▶ 继续' : '⏸ 暂停';
+  });
+  $('#abortBtn').addEventListener('click', async () => {
+    await fw.abortPublish();
+    paused = false;
+    $('#pauseBtn').textContent = '⏸ 暂停';
+  });
+
+  fw.appInfo().then((info) => {
+    const el = document.createElement('p');
+    el.className = 'hint';
+    el.textContent = `v${info.version} · ${info.source}`;
+    document.body.appendChild(el);
+  });
+
+  initProfile();
+  refreshPkgs();
+</script>
+</body>
+</html>

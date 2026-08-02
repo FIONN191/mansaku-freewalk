@@ -1,6 +1,6 @@
 {
   "name": "freewalk-helper",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "漫展自由行申请助手：三平台（小红书/抖音/QQ空间）自动发布",
   "main": "main.js",
   "author": "Fionn",
@@ -11,7 +11,7 @@
     "dist": "electron-builder --mac --win"
   },
   "devDependencies": {
-    "electron": "^31.3.0",
+    "electron": "33.4.11",
     "electron-builder": "^24.13.3"
   },
   "build": {

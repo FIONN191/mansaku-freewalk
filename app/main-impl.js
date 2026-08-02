@@ -163,7 +163,8 @@ function buildTexts(p, profile) {
     };
   }
   const topics = normTopics(p.topics);
-  const body = `${p.name}${p.batch}自由行申请\n${p.city}·${p.venue}\n${p.dates} 我们不见不散！\n\nCN: ${profile.cn}\n申请自由行类别: 摄影\n申请日期: ${p.applyDates}\n摄影设备: ${profile.device}\n\n本次我最期待在${p.name}打卡的内容是: ${p.expect}\n\n需要${p.likes}👍+${p.comments}🍎 谢谢老大们！`;
+  const cat = profile.category || DEFAULT_CATEGORY;
+  const body = `${p.name}${p.batch}自由行申请\n${p.city}·${p.venue}\n${p.dates} 我们不见不散！\n\nCN: ${profile.cn}\n申请自由行类别: ${cat}\n申请日期: ${p.applyDates}\n${categoryOf(cat).field}: ${profile.device}\n\n本次我最期待在${p.name}打卡的内容是: ${p.expect}\n\n需要${p.likes}👍+${p.comments}🍎 谢谢老大们！`;
   return {
     title: `${p.name}自由行申请`.slice(0, 20),
     body,
@@ -172,9 +173,14 @@ function buildTexts(p, profile) {
   };
 }
 
-// —— 个人资料：CN/设备/QQ 号只落盘到本机 userData，源码与仓库里不留任何真实信息 ——
+// —— 自由行类别：不同类别要报的第二项资料不一样（摄影报设备、cos 报出角…）——
+const CATEGORIES = require('./categories.json');
+const DEFAULT_CATEGORY = '摄影';
+const categoryOf = (name) => CATEGORIES[name] || CATEGORIES[DEFAULT_CATEGORY];
+
+// —— 个人资料：CN/类别/设备/QQ 号只落盘到本机 userData，源码与仓库里不留任何真实信息 ——
 const profileFile = () => path.join(app.getPath('userData'), 'profile.json');
-const EMPTY_PROFILE = { cn: '', device: '', qq: '' };
+const EMPTY_PROFILE = { cn: '', category: DEFAULT_CATEGORY, device: '', qq: '' };
 
 function readProfile() {
   try {
@@ -186,6 +192,7 @@ function readProfile() {
 
 // —— IPC ——
 ipcMain.handle('platform:show', (_e, id) => showPlatform(id));
+ipcMain.handle('app:categories', () => CATEGORIES);
 ipcMain.handle('profile:get', () => readProfile());
 ipcMain.handle('profile:set', (_e, profile) => {
   fs.writeFileSync(profileFile(), JSON.stringify({ ...EMPTY_PROFILE, ...profile }, null, 2));
@@ -386,6 +393,9 @@ app.whenReady().then(() => {
           titleLen: document.querySelector('#ed_title').value.length,
           bodyLen: document.querySelector('#ed_body').value.length,
           imgCount: document.querySelector('#imgCount').textContent,
+          categories: [...document.querySelectorAll('#category option')].map(o => o.value),
+          deviceLabel: document.querySelector('#deviceLabel').textContent,
+          devicePlaceholder: document.querySelector('#device').placeholder,
         })`);
         console.log('UI_PROBE:', JSON.stringify(probe));
       } catch (e) { console.log('UI_PROBE_FAIL:', e.message); }

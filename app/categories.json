@@ -1,0 +1,8 @@
+{
+  "摄影": { "field": "摄影设备", "placeholder": "如：佳能 EOS R8", "topic": "漫展摄影" },
+  "cos": { "field": "出角计划", "placeholder": "如：《XX》XXX", "topic": "cosplay" },
+  "写手": { "field": "发布平台", "placeholder": "如：小红书 + 微博", "topic": "漫展探展" },
+  "舞见": { "field": "舞种曲目", "placeholder": "如：宅舞《XXX》", "topic": "宅舞" },
+  "画师": { "field": "创作方向", "placeholder": "如：场刊插画 / 约稿", "topic": "漫展约稿" },
+  "其他": { "field": "补充信息", "placeholder": "按主办要求填写", "topic": "" }
+}

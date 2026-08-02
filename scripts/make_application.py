@@ -5,11 +5,16 @@
 输出:  <漫展目录>/posts/*.txt  <漫展目录>/images/NN_*.ext  <漫展目录>/CHECKLIST.md
 """
 import hashlib
+import json
 import shutil
 import sys
 from pathlib import Path
 
-TEMPLATE = Path(__file__).resolve().parent.parent / "templates" / "post_摄影.txt"
+ROOT = Path(__file__).resolve().parent.parent
+TEMPLATE = ROOT / "templates" / "post.txt"
+# 类别定义与桌面 App 共用同一份，避免两处漂移
+CATEGORIES = json.loads((ROOT / "app" / "categories.json").read_text(encoding="utf-8"))
+DEFAULT_CATEGORY = "摄影"
 
 
 def parse_flat_yaml(path: Path) -> dict:
@@ -45,11 +50,16 @@ def main(con_file: str) -> None:
     con_path = Path(con_file).resolve()
     con = parse_flat_yaml(con_path)
     root = con_path.parent
+    category = con.get("类别", DEFAULT_CATEGORY)
+    if category not in CATEGORIES:
+        sys.exit(f"[错误] 未知类别 {category!r}，可选: {'、'.join(CATEGORIES)}")
     body = TEMPLATE.read_text(encoding="utf-8").format(
         漫展名称=con["漫展名称"], 批次=con.get("批次", ""), 城市=con["城市"],
         场馆=con["场馆"], 日期=con["日期"], cn=con["cn"],
-        申请日期=con["申请日期"], 设备=con["设备"], 期待内容=con["期待内容"],
-        点赞数=con["点赞数"], 评论数=con["评论数"], 话题=con["话题_小红书"],
+        申请日期=con["申请日期"], 类别=category,
+        器材项=CATEGORIES[category]["field"], 设备=con["设备"],
+        期待内容=con["期待内容"], 点赞数=con["点赞数"], 评论数=con["评论数"],
+        话题=con["话题_小红书"],
     )
 
     posts = root / "posts"

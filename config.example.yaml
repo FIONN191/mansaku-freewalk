@@ -3,7 +3,7 @@
 
 profile:
   cn: 你的CN
-  category: 摄影            # 自由行类别：摄影 / cos / 写手 …
+  category: 摄影            # 摄影 / cos / 写手 / 舞见 / 画师 / 其他
   device: 你的器材           # 如：相机型号
   regions: 城市A, 城市B      # 关注的漫展城市
 

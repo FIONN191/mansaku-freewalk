@@ -1,6 +1,8 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('fw', {
+  // 类别定义走 IPC 从主进程取（预加载脚本在沙箱里不能 require 任意文件），保证与主进程同一份
+  getCategories: () => ipcRenderer.invoke('app:categories'),
   showPlatform: (id) => ipcRenderer.invoke('platform:show', id),
   getProfile: () => ipcRenderer.invoke('profile:get'),
   setProfile: (profile) => ipcRenderer.invoke('profile:set', profile),

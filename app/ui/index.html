@@ -67,8 +67,9 @@
   <h2>② 个人资料</h2>
   <div class="row">
     <div><label>CN</label><input type="text" id="cn" placeholder="你的 CN"></div>
-    <div><label>设备</label><input type="text" id="device" placeholder="如：相机型号"></div>
+    <div><label>自由行类别</label><select id="category"></select></div>
   </div>
+  <label id="deviceLabel">摄影设备</label><input type="text" id="device">
   <label>QQ号（QQ空间发布用）</label><input type="text" id="qq" placeholder="你的 QQ 号">
   <p class="hint">填一次即可，只保存在本机 userData/profile.json，不随代码分发。</p>
 
@@ -91,7 +92,7 @@
     <textarea id="ed_body" rows="8" placeholder="输入正文描述，想怎么写就怎么写，原样发布"></textarea>
     <div class="cnt" id="bodyCnt">0/1000</div>
     <input type="text" id="ed_topics" placeholder="# 话题（空格或逗号分隔，发布时按平台联想插入）">
-    <input type="text" id="ed_name" placeholder="申请包名称（列表显示用，如：oioi重庆 摄影申请）">
+    <input type="text" id="ed_name" placeholder="申请包名称（列表显示用，如：oioi重庆 自由行申请）">
 
     <details id="tmplBox">
       <summary>📋 用模板生成文案（可选，生成后填入上方可再改）</summary>
@@ -163,17 +164,35 @@
   let edScene = [];
   let editingId = null;
 
-  const currentProfile = () => ({ cn: $('#cn').value, device: $('#device').value, qq: $('#qq').value });
+  const currentProfile = () => ({
+    cn: $('#cn').value, category: $('#category').value,
+    device: $('#device').value, qq: $('#qq').value,
+  });
+  // 第二栏的含义随类别变：摄影报设备、cos 报出角、写手报平台…
+  let CATS = {};
+  const catInfo = () => CATS[$('#category').value] || { field: '设备', placeholder: '', topic: '' };
+
+  function applyCategory() {
+    const c = catInfo();
+    $('#deviceLabel').textContent = c.field;
+    $('#device').placeholder = c.placeholder;
+  }
 
   // —— 个人资料：启动时从本机 userData 读回，改完即存（源码里不带任何真实资料） ——
   async function initProfile() {
+    CATS = await fw.getCategories();
+    $('#category').innerHTML = Object.keys(CATS)
+      .map((k) => `<option value="${esc(k)}">${esc(k)}</option>`).join('');
     const p = await fw.getProfile();
     $('#cn').value = p.cn || '';
+    $('#category').value = CATS[p.category] ? p.category : '摄影';
     $('#device').value = p.device || '';
     $('#qq').value = p.qq || '';
+    applyCategory();
   }
-  ['#cn', '#device', '#qq'].forEach((s) =>
+  ['#cn', '#category', '#device', '#qq'].forEach((s) =>
     $(s).addEventListener('change', () => fw.setProfile(currentProfile())));
+  $('#category').addEventListener('change', applyCategory);
 
   document.querySelectorAll('.tabs button').forEach((b) =>
     b.addEventListener('click', () => fw.showPlatform(b.dataset.pf)));
@@ -280,7 +299,8 @@
     const v = (s) => $(s).value.trim();
     if (!v('#f_name')) return alert('先填漫展名称');
     const p = currentProfile();
-    if (!p.cn || !p.device) return alert('先在「② 个人资料」填好 CN 和设备');
+    const c = catInfo();
+    if (!p.cn || !p.device) return alert(`先在「② 个人资料」填好 CN 和${c.field}`);
     $('#ed_title').value = `${v('#f_name')}自由行申请`.slice(0, 20);
     $('#ed_body').value =
 `${v('#f_name')}${v('#f_batch')}自由行申请
@@ -288,15 +308,15 @@ ${v('#f_city')}·${v('#f_venue')}
 ${v('#f_dates')} 我们不见不散！
 
 CN: ${p.cn}
-申请自由行类别: 摄影
+申请自由行类别: ${p.category}
 申请日期: ${v('#f_apply')}
-摄影设备: ${p.device}
+${c.field}: ${p.device}
 
 本次我最期待在${v('#f_name')}打卡的内容是: ${v('#f_expect')}
 
 需要${v('#f_likes')}👍+${v('#f_comments')}🍎 谢谢老大们！`;
     if (!$('#ed_topics').value) {
-      $('#ed_topics').value = [v('#f_city') && v('#f_city') + '漫展', '互赞', '自由行', '漫展摄影']
+      $('#ed_topics').value = [v('#f_city') && v('#f_city') + '漫展', '互赞', '自由行', c.topic]
         .filter(Boolean).join(' ');
     }
     if (!$('#ed_name').value) $('#ed_name').value = `${v('#f_name')}${v('#f_batch')}`;

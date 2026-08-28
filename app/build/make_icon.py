@@ -3,6 +3,7 @@
 
 纯几何绘制，4 倍超采样后缩小，边缘干净。产出：
   icon.png       1024 满幅方图（Windows / 通用）
+  ../../docs/icon-{192,512}.png、apple-touch-icon.png  PWA 用
   icon-mac.png   1024 画布内 824 圆角方（macOS 图标网格）
   icon.icns / icon.ico
 
@@ -93,6 +94,13 @@ def main() -> None:
 
     # —— .ico：满幅方图，多尺寸打包 ——
     full.save(OUT / "icon.ico", sizes=[(s, s) for s in (16, 24, 32, 48, 64, 128, 256)])
+
+    # —— PWA 图标：满幅方图当 maskable（底色铺满，安全区内只有票根），另出 any 尺寸 ——
+    web = OUT.parent.parent / "docs"
+    if web.is_dir():
+        for size in (192, 512):
+            full.resize((size, size), Image.LANCZOS).save(web / f"icon-{size}.png")
+        mac.resize((180, 180), Image.LANCZOS).save(web / "apple-touch-icon.png")
 
     print("生成:", ", ".join(p.name for p in sorted(OUT.glob("icon*")) if p.is_file()))
 

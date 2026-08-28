@@ -1,0 +1,23 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # docs/ 是静态站，没法 require app/ 里的文件，只能放一份副本 —— 这里守住它别漂移
+      - name: 类别定义两处一致
+        run: diff app/categories.json docs/categories.json
+
+      - name: JS 语法
+        run: |
+          for f in app/*.js app/drivers/*.js docs/*.js; do node --check "$f"; done
+
+      - name: Python 语法
+        run: python3 -m py_compile scripts/make_application.py app/build/make_icon.py

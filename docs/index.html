@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>漫展自由行助手</title>
+<meta name="description" content="在手机上准备漫展自由行申请：选图、按类别生成文案、一键分享到小红书/抖音/QQ空间。">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#16181d">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1><img src="icon-192.png" alt=""> 漫展自由行助手</h1>
+    <button id="installBtn" class="ghost" hidden>加到主屏</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>① 个人资料</h2>
+      <div class="row">
+        <div><label for="cn">CN</label><input type="text" id="cn" placeholder="你的 CN" autocomplete="off"></div>
+        <div><label for="category">自由行类别</label><select id="category"></select></div>
+      </div>
+      <label for="device" id="deviceLabel">摄影设备</label><input type="text" id="device" autocomplete="off">
+      <label for="qq">QQ号（QQ空间发布用，可留空）</label><input type="text" id="qq" inputmode="numeric" autocomplete="off">
+      <p class="hint">只存在这台设备的浏览器里，不上传任何服务器。</p>
+    </section>
+
+    <section>
+      <h2>② 申请包</h2>
+      <div class="bar">
+        <select id="pkgSelect"></select>
+        <button id="newPkg" title="新建一个申请包">＋</button>
+        <button id="delPkg" title="删除当前申请包">🗑</button>
+      </div>
+
+      <div class="editor">
+        <div class="ed-head"><span>图片</span><span id="imgCount">0/18</span></div>
+        <div class="grid" id="officialGrid"></div>
+        <p class="sub">官图 · 发布时排在前面</p>
+        <div class="grid" id="sceneGrid"></div>
+        <p class="sub">场照 · 排在官图之后</p>
+
+        <input type="text" id="title" maxlength="20" placeholder="标题（小红书上限 20 字）">
+        <div class="cnt" id="titleCnt">0/20</div>
+        <textarea id="body" rows="8" placeholder="正文，想怎么写就怎么写"></textarea>
+        <div class="cnt" id="bodyCnt">0/1000</div>
+        <input type="text" id="topics" placeholder="话题（空格或逗号分隔，不用打 #）">
+        <input type="text" id="pkgName" placeholder="申请包名称（列表显示用）">
+
+        <details id="tmplBox">
+          <summary>📋 用模板生成文案</summary>
+          <div class="row">
+            <div><label for="f_name">漫展名称</label><input type="text" id="f_name"></div>
+            <div><label for="f_batch">批次</label><input type="text" id="f_batch" placeholder="第一批"></div>
+          </div>
+          <div class="row">
+            <div><label for="f_city">城市</label><input type="text" id="f_city"></div>
+            <div><label for="f_venue">场馆</label><input type="text" id="f_venue"></div>
+          </div>
+          <div class="row">
+            <div><label for="f_dates">展期</label><input type="text" id="f_dates" placeholder="2026.1.1-1.2"></div>
+            <div><label for="f_apply">申请日期</label><input type="text" id="f_apply" placeholder="1.1-1.2 两日"></div>
+          </div>
+          <label for="f_expect">最期待内容</label><input type="text" id="f_expect">
+          <div class="row">
+            <div><label for="f_likes">需要赞</label><input type="text" id="f_likes" inputmode="numeric" value="30"></div>
+            <div><label for="f_comments">需要评论</label><input type="text" id="f_comments" inputmode="numeric" value="15"></div>
+          </div>
+          <button id="genTmpl" class="wide">生成文案 → 填入上方</button>
+        </details>
+
+        <button id="savePkg" class="primary wide">💾 保存申请包</button>
+        <p class="hint">图片按原文件保存，不做任何压缩或转码。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>③ 发布</h2>
+      <p class="hint">手机上没法自动发帖 —— 用「分享」把图文送进目标 App，或复制文案后手动贴。</p>
+      <button id="shareBtn" class="primary wide">📤 分享图片 + 文案</button>
+      <div class="platforms">
+        <button data-pf="xhs">复制小红书文案</button>
+        <button data-pf="douyin">复制抖音文案</button>
+        <button data-pf="qzone">复制QQ空间文案</button>
+        <button data-pf="title">复制标题</button>
+      </div>
+      <button id="saveImgs" class="wide">⬇️ 保存全部图片到相册</button>
+      <pre id="preview"></pre>
+    </section>
+  </main>
+
+  <div id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-29 14:21",
+  "updated": "2026-08-29 14:26",
   "cities": [
     "成都",
     "宜宾",
@@ -13,7 +13,7 @@
       "venue": "奇谷米次元街区",
       "start": "2026-08-29",
       "end": "2026-08-29",
-      "sale_start": "2026-07-31 02:00",
+      "sale_start": "2026-07-30 16:00",
       "price": "¥18~28",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004477"
     },
@@ -24,9 +24,31 @@
       "venue": "天府国际动漫城",
       "start": "2026-09-19",
       "end": "2026-09-19",
-      "sale_start": "2026-08-10 20:00",
+      "sale_start": "2026-08-10 10:00",
       "price": "¥68~99",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004687"
+    },
+    {
+      "id": "1005294",
+      "name": "成都·蔚蓝档案ONLY同人-2026",
+      "city": "成都市",
+      "venue": "锦官宴",
+      "start": "2026-09-25",
+      "end": "2026-09-25",
+      "sale_start": "2026-09-11 02:00",
+      "price": "¥78~118",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1005294"
+    },
+    {
+      "id": "1003738",
+      "name": "成都·2026第38届星幻动漫节",
+      "city": "成都市",
+      "venue": "星空派对·轰趴馆(王府井科华中路店)",
+      "start": "2026-09-26",
+      "end": "2026-09-26",
+      "sale_start": "2026-07-07 16:00",
+      "price": "¥60~568",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1003738"
     },
     {
       "id": "1004546",
@@ -35,7 +57,7 @@
       "venue": "中国西部国际博览城",
       "start": "2026-10-01",
       "end": "2026-10-04",
-      "sale_start": "2026-08-04 17:29",
+      "sale_start": "2026-08-04 07:29",
       "price": "¥69.9~88",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004546"
     },
@@ -46,9 +68,20 @@
       "venue": "宜宾岷江新区数字文化中心",
       "start": "2026-10-01",
       "end": "2026-10-03",
-      "sale_start": "2026-08-15 02:00",
+      "sale_start": "2026-08-14 16:00",
       "price": "¥55~139",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004941"
+    },
+    {
+      "id": "1005170",
+      "name": "成都·2026物华弥新同人only展",
+      "city": "成都市",
+      "venue": "荼予TuYu新派茶空间",
+      "start": "2026-10-02",
+      "end": "2026-10-02",
+      "sale_start": "2026-08-29 06:00",
+      "price": "¥90",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1005170"
     },
     {
       "id": "1004357",
@@ -57,7 +90,7 @@
       "venue": "天府国际动漫城",
       "start": "2026-10-04",
       "end": "2026-10-06",
-      "sale_start": "2026-07-22 02:00",
+      "sale_start": "2026-07-21 16:00",
       "price": "¥40~103",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004357"
     },
@@ -68,7 +101,7 @@
       "venue": "MAO Livehouse成都",
       "start": "2026-10-05",
       "end": "2026-10-05",
-      "sale_start": "2026-06-18 22:00",
+      "sale_start": "2026-06-18 12:00",
       "price": "¥388~988",
       "url": "https://show.bilibili.com/platform/detail.html?id=1002585"
     },
@@ -79,7 +112,7 @@
       "venue": "天府国际动漫城",
       "start": "2026-10-31",
       "end": "2026-11-01",
-      "sale_start": "2026-07-10 19:00",
+      "sale_start": "2026-07-10 09:00",
       "price": "¥70~138",
       "url": "https://show.bilibili.com/platform/detail.html?id=1003328"
     }

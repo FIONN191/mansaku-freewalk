@@ -20,7 +20,15 @@
 
   <main>
     <section>
-      <h2>① 个人资料</h2>
+      <h2>① 近期漫展（成都 / 宜宾 / 遂宁）</h2>
+      <div id="shows"><p class="hint">加载中…</p></div>
+      <a class="linkbtn" id="biliLink"
+         href="https://show.bilibili.com/platform/home.html?msource=pc_web"
+         target="_blank" rel="noopener">🎫 打开 B站会员购</a>
+    </section>
+
+    <section>
+      <h2>② 个人资料</h2>
       <div class="row">
         <div><label for="cn">CN</label><input type="text" id="cn" placeholder="你的 CN" autocomplete="off"></div>
         <div><label for="category">自由行类别</label><select id="category"></select></div>
@@ -31,7 +39,7 @@
     </section>
 
     <section>
-      <h2>② 申请包</h2>
+      <h2>③ 申请包</h2>
       <div class="bar">
         <select id="pkgSelect"></select>
         <button id="newPkg" title="新建一个申请包">＋</button>
@@ -80,7 +88,7 @@
     </section>
 
     <section>
-      <h2>③ 发布</h2>
+      <h2>④ 发布</h2>
       <p class="hint">手机上没法自动发帖 —— 用「分享」把图文送进目标 App，或复制文案后手动贴。</p>
       <button id="shareBtn" class="primary wide">📤 分享图片 + 文案</button>
       <div class="platforms">

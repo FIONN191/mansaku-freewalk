@@ -1,0 +1,51 @@
+name: watch-shows
+
+# 每天北京时间 09:00 扫一次 B 站会员购的成都/宜宾/遂宁漫展。
+# 有新展就开一个 Issue（GitHub 会邮件/App 推送给仓库所有者），
+# 同时把快照写进 docs/shows.json，手机版 PWA 直接读它。
+on:
+  schedule:
+    - cron: "0 1 * * *"        # cron 走 UTC，01:00 UTC = 09:00 北京
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 拉取并与上次快照对比
+        working-directory: scripts
+        run: python3 watch_shows.py --write --new-out "$GITHUB_WORKSPACE/new.md"
+
+      - name: 有新漫展就开 Issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ ! -s new.md ]; then
+            echo "没有新漫展，不开 Issue。"
+            exit 0
+          fi
+          N=$(grep -c '^### ' new.md)
+          gh label create 新漫展 --color e0334b --description "会员购扫到的新漫展" 2>/dev/null || true
+          gh issue create \
+            --title "🎪 新增 $N 场漫展待报名（成都/宜宾/遂宁）" \
+            --label 新漫展 \
+            --body-file new.md
+
+      - name: 提交快照
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/shows.json
+          git diff --cached --quiet && echo "快照无变化" && exit 0
+          git commit -m "更新漫展快照 $(date -u +%Y-%m-%d)"
+          git push

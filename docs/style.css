@@ -82,3 +82,22 @@ summary { cursor: pointer; color: var(--muted); font-size: 14px; padding: 4px 0;
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 @media (min-width: 640px) { .platforms { grid-template-columns: repeat(4, 1fr); } }
+
+/* —— 近期漫展 —— */
+.linkbtn {
+  display: block; text-align: center; text-decoration: none; margin-top: 10px;
+  background: #2a2e37; color: var(--fg); border: 1px solid var(--line);
+  border-radius: 8px; padding: 12px; font-size: 15px;
+}
+.show {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 11px 12px; margin-bottom: 8px;
+}
+.show a { color: var(--fg); text-decoration: none; font-weight: 600; font-size: 14px; }
+.show .meta { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+.show .tag {
+  display: inline-block; background: var(--accent); color: #fff; font-size: 11px;
+  border-radius: 4px; padding: 0 6px; margin-right: 6px; vertical-align: 1px;
+}
+.show.soon { border-color: var(--accent); }
+.stamp { font-size: 11px; color: var(--dim); margin-top: 6px; }

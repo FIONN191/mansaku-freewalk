@@ -292,7 +292,44 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }
 
+// —— 近期漫展：读 CI 每天更新的快照（浏览器直连会员购接口会被 CORS 挡） ——
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+async function loadShows() {
+  const box = $('#shows');
+  let data;
+  try {
+    data = await (await fetch('shows.json', { cache: 'no-cache' })).json();
+  } catch (_) {
+    box.innerHTML = '<p class="hint">漫展列表还没生成，或当前离线。</p>';
+    return;
+  }
+  const today = new Date().toISOString().slice(0, 10);
+  const rows = (data.shows || []).filter((s) => !s.end || s.end >= today);
+  if (!rows.length) {
+    box.innerHTML = '<p class="hint">这三个城市暂时没有在售的漫展。</p>';
+    return;
+  }
+  // 已经开展的标「进行中」，一个月内开展的标「将近」，都用醒目描边
+  const tagOf = (s) => {
+    if (s.start && s.start <= today) return '进行中';
+    const d = (new Date(s.start) - new Date()) / 86400000;
+    return d <= 30 ? '将近' : '';
+  };
+  box.innerHTML = rows.map((s) => {
+    const tag = tagOf(s);
+    return `
+    <div class="show${tag ? ' soon' : ''}">
+      <a href="${esc(s.url)}" target="_blank" rel="noopener">${tag ? `<span class="tag">${tag}</span>` : ''}${esc(s.name)}</a>
+      <div class="meta">${esc(s.city)} · ${esc(s.venue)}</div>
+      <div class="meta">${esc(s.start)} ~ ${esc(s.end)} · ${esc(s.price)}</div>
+    </div>`;
+  }).join('') +
+    `<p class="stamp">数据来自 B站会员购，每天自动更新 · 快照时间 ${esc(data.updated || '未知')}</p>`;
+}
+
 (async () => {
   await initProfile();
   await refreshPkgs();
+  loadShows();
 })();

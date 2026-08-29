@@ -63,6 +63,7 @@
     <button data-pf="douyin">抖音</button>
     <button data-pf="qzone">QQ空间</button>
   </div>
+  <button id="biliBtn" style="width:100%;margin-top:6px" title="在右侧打开 B 站会员购，找近期漫展">🎫 B站会员购 · 找漫展</button>
 
   <h2>② 个人资料</h2>
   <div class="row">
@@ -197,6 +198,7 @@
   document.querySelectorAll('.tabs button').forEach((b) =>
     b.addEventListener('click', () => fw.showPlatform(b.dataset.pf)));
   $('#relaunch').addEventListener('click', () => fw.relaunch());
+  $('#biliBtn').addEventListener('click', () => fw.showPlatform('bili'));
 
   // —— 图片网格（实时渲染，➕ 添加 / ✕ 移除） ——
   function tile(f, label, group, idx) {

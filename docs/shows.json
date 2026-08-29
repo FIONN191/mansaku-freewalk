@@ -1,0 +1,87 @@
+{
+  "updated": "2026-08-29 14:21",
+  "cities": [
+    "成都",
+    "宜宾",
+    "遂宁"
+  ],
+  "shows": [
+    {
+      "id": "1004477",
+      "name": "成都·《寻溯真理之外》——《重返未来：1999》同人ONLY展",
+      "city": "成都市",
+      "venue": "奇谷米次元街区",
+      "start": "2026-08-29",
+      "end": "2026-08-29",
+      "sale_start": "2026-07-31 02:00",
+      "price": "¥18~28",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1004477"
+    },
+    {
+      "id": "1004687",
+      "name": "成都·\"我见永恒\"明日方舟同人only展",
+      "city": "成都市",
+      "venue": "天府国际动漫城",
+      "start": "2026-09-19",
+      "end": "2026-09-19",
+      "sale_start": "2026-08-10 20:00",
+      "price": "¥68~99",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1004687"
+    },
+    {
+      "id": "1004546",
+      "name": "成都·第二十五届世界线动漫展-狂撒福利节",
+      "city": "成都市",
+      "venue": "中国西部国际博览城",
+      "start": "2026-10-01",
+      "end": "2026-10-04",
+      "sale_start": "2026-08-04 17:29",
+      "price": "¥69.9~88",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1004546"
+    },
+    {
+      "id": "1004941",
+      "name": "宜宾·第32届DCT长江国际动漫展.十一周年庆",
+      "city": "宜宾市",
+      "venue": "宜宾岷江新区数字文化中心",
+      "start": "2026-10-01",
+      "end": "2026-10-03",
+      "sale_start": "2026-08-15 02:00",
+      "price": "¥55~139",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1004941"
+    },
+    {
+      "id": "1004357",
+      "name": "成都·TIA动漫电竞展",
+      "city": "成都市",
+      "venue": "天府国际动漫城",
+      "start": "2026-10-04",
+      "end": "2026-10-06",
+      "sale_start": "2026-07-22 02:00",
+      "price": "¥40~103",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1004357"
+    },
+    {
+      "id": "1002585",
+      "name": "成都·2026洛天依同人only路展2.0 梦境少女特别展会",
+      "city": "成都市",
+      "venue": "MAO Livehouse成都",
+      "start": "2026-10-05",
+      "end": "2026-10-05",
+      "sale_start": "2026-06-18 22:00",
+      "price": "¥388~988",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1002585"
+    },
+    {
+      "id": "1003328",
+      "name": "成都·第六届JH•TIA动漫电竞展",
+      "city": "成都市",
+      "venue": "天府国际动漫城",
+      "start": "2026-10-31",
+      "end": "2026-11-01",
+      "sale_start": "2026-07-10 19:00",
+      "price": "¥70~138",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1003328"
+    }
+  ]
+}

@@ -23,6 +23,8 @@ const PLATFORMS = {
   xhs: { name: '小红书', home: 'https://creator.xiaohongshu.com/publish/publish?source=official' },
   douyin: { name: '抖音', home: 'https://creator.douyin.com/creator-micro/home' },
   qzone: { name: 'QQ空间', home: 'https://qzone.qq.com' },
+  // 只用来看展，不参与发布（发布平台由界面上的勾选框决定，这里没有对应 driver）
+  bili: { name: 'B站会员购', home: 'https://show.bilibili.com/platform/home.html?msource=pc_web' },
 };
 
 let win = null;

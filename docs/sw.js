@@ -1,7 +1,7 @@
 /* 离线可用：外壳文件缓存优先，其余走网络。
    改了 docs/ 里任何文件就把 VERSION 加一，旧缓存会被清掉。 */
-const VERSION = 'v1';
-const SHELL = ['./', './index.html', './style.css', './app.js', './categories.json',
+const VERSION = 'v2';
+const SHELL = ['./', './index.html', './style.css', './app.js', './categories.json', './shows.json',
                './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', (e) => {
@@ -16,5 +16,18 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
+  // 漫展快照每天由 CI 更新，必须网络优先，否则手机上永远是旧的；离线时再回落到缓存
+  if (e.request.url.includes('shows.json')) {
+    e.respondWith(
+      fetch(e.request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(VERSION).then((c) => c.put(e.request, copy));
+          return res;
+        })
+        .catch(() => caches.match(e.request))
+    );
+    return;
+  }
   e.respondWith(caches.match(e.request).then((hit) => hit || fetch(e.request)));
 });

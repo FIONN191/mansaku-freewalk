@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-01 13:57",
+  "updated": "2026-09-02 13:20",
   "cities": [
     "成都",
     "宜宾",
@@ -60,6 +60,17 @@
       "sale_start": "2026-06-18 12:00",
       "price": "¥388~988",
       "url": "https://show.bilibili.com/platform/detail.html?id=1002585"
+    },
+    {
+      "id": "1005569",
+      "name": "宜宾·Danm动漫嘉年华",
+      "city": "宜宾市",
+      "venue": "XIN立方1号场馆",
+      "start": "2026-10-05",
+      "end": "2026-10-05",
+      "sale_start": "2026-08-26 16:00",
+      "price": "¥49~129",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1005569"
     },
     {
       "id": "1003328",

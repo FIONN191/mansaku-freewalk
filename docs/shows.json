@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-10 13:29",
+  "updated": "2026-09-11 13:31",
   "cities": [
     "成都",
     "宜宾",
@@ -93,6 +93,17 @@
       "sale_start": "2026-08-26 16:00",
       "price": "¥49~129",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005569"
+    },
+    {
+      "id": "1003328",
+      "name": "成都·第六届JH•TIA动漫电竞展",
+      "city": "成都市",
+      "venue": "天府国际动漫城",
+      "start": "2026-10-31",
+      "end": "2026-11-01",
+      "sale_start": "2026-07-10 09:00",
+      "price": "¥70~138",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1003328"
     },
     {
       "id": "1005851",

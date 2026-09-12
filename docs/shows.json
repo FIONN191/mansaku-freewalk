@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11 13:31",
+  "updated": "2026-09-12 13:18",
   "cities": [
     "成都",
     "宜宾",
@@ -18,6 +18,17 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1004687"
     },
     {
+      "id": "1005294",
+      "name": "成都·蔚蓝档案ONLY同人-2026",
+      "city": "成都市",
+      "venue": "锦官宴",
+      "start": "2026-09-25",
+      "end": "2026-09-25",
+      "sale_start": "2026-09-11 11:00",
+      "price": "¥78~118",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1005294"
+    },
+    {
       "id": "1005736",
       "name": "成都·鸣潮only中秋追月节同人展",
       "city": "成都市",
@@ -27,6 +38,17 @@
       "sale_start": "2026-09-02 16:00",
       "price": "¥35~40",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005736"
+    },
+    {
+      "id": "1003738",
+      "name": "成都·2026第38届星幻动漫节",
+      "city": "成都市",
+      "venue": "星空派对·轰趴馆(王府井科华中路店)",
+      "start": "2026-09-26",
+      "end": "2026-09-26",
+      "sale_start": "2026-07-07 16:00",
+      "price": "¥60~568",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1003738"
     },
     {
       "id": "1004546",

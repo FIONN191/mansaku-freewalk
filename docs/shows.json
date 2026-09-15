@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14 13:39",
+  "updated": "2026-09-15 13:40",
   "cities": [
     "成都",
     "宜宾",
@@ -115,17 +115,6 @@
       "sale_start": "2026-08-26 16:00",
       "price": "¥49~129",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005569"
-    },
-    {
-      "id": "1005880",
-      "name": "成都·正版国漫2.5次元《狐妖小红娘 第三部》演唱会2026巡演",
-      "city": "成都市",
-      "venue": "MAOLivehouse 成都",
-      "start": "2026-10-24",
-      "end": "2026-10-24",
-      "sale_start": "2026-08-31 16:00",
-      "price": "¥99",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1005880"
     },
     {
       "id": "1003328",

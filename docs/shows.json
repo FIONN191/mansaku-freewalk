@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-16 13:34",
+  "updated": "2026-09-17 13:39",
   "cities": [
     "成都",
     "宜宾",
@@ -38,6 +38,17 @@
       "sale_start": "2026-09-02 16:00",
       "price": "¥35~40",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005736"
+    },
+    {
+      "id": "1006181",
+      "name": "【免费活动】成都·锦城万达中秋周年庆漫展",
+      "city": "成都市",
+      "venue": "锦城万达广场",
+      "start": "2026-09-25",
+      "end": "2026-09-25",
+      "sale_start": "2026-09-15 02:00",
+      "price": "¥30",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006181"
     },
     {
       "id": "1003738",

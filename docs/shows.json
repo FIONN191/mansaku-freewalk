@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17 13:39",
+  "updated": "2026-09-18 13:28",
   "cities": [
     "成都",
     "宜宾",
@@ -82,6 +82,17 @@
       "sale_start": "2026-08-14 16:00",
       "price": "¥55~139",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004941"
+    },
+    {
+      "id": "1006240",
+      "name": "【免费活动】大英·重生之我在高铁站办漫展——首届动漫嘉年华",
+      "city": "遂宁市",
+      "venue": "大英东站商业综合体",
+      "start": "2026-10-02",
+      "end": "2026-10-02",
+      "sale_start": "2026-09-02 16:00",
+      "price": "¥20",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006240"
     },
     {
       "id": "1004357",

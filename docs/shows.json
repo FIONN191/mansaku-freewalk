@@ -1,22 +1,11 @@
 {
-  "updated": "2026-09-25 13:41",
+  "updated": "2026-09-26 13:44",
   "cities": [
     "成都",
     "宜宾",
     "遂宁"
   ],
   "shows": [
-    {
-      "id": "1005294",
-      "name": "成都·蔚蓝档案ONLY同人-2026",
-      "city": "成都市",
-      "venue": "锦官宴",
-      "start": "2026-09-25",
-      "end": "2026-09-25",
-      "sale_start": "2026-09-11 11:00",
-      "price": "¥78~118",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1005294"
-    },
     {
       "id": "1005736",
       "name": "成都·鸣潮only中秋追月节同人展",
@@ -27,17 +16,6 @@
       "sale_start": "2026-09-02 16:00",
       "price": "¥35~40",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005736"
-    },
-    {
-      "id": "1006181",
-      "name": "【免费活动】成都·锦城万达中秋周年庆漫展",
-      "city": "成都市",
-      "venue": "锦城万达广场",
-      "start": "2026-09-25",
-      "end": "2026-09-25",
-      "sale_start": "2026-09-15 02:00",
-      "price": "¥30",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1006181"
     },
     {
       "id": "1003738",
@@ -128,6 +106,17 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1005569"
     },
     {
+      "id": "1006410",
+      "name": "成都·万圣钟声响起前 舟趴 · 明日方舟同人only秋季茶会",
+      "city": "成都市",
+      "venue": "锦官宴",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "sale_start": "2026-09-25 10:00",
+      "price": "¥88",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006410"
+    },
+    {
       "id": "1003328",
       "name": "成都·第六届JH•TIA动漫电竞展",
       "city": "成都市",
@@ -148,6 +137,17 @@
       "sale_start": "2026-09-21 10:00",
       "price": "¥168~258",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006325"
+    },
+    {
+      "id": "1006338",
+      "name": "成都·拳头游戏·Riot Games同人ONLY",
+      "city": "成都市",
+      "venue": "成都星宸假日酒店(世纪城店)",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "sale_start": "2026-09-25 12:00",
+      "price": "¥78",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006338"
     },
     {
       "id": "1005851",

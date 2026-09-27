@@ -1,33 +1,11 @@
 {
-  "updated": "2026-09-26 13:44",
+  "updated": "2026-09-27 14:04",
   "cities": [
     "成都",
     "宜宾",
     "遂宁"
   ],
   "shows": [
-    {
-      "id": "1005736",
-      "name": "成都·鸣潮only中秋追月节同人展",
-      "city": "成都市",
-      "venue": "奇谷米次元街区",
-      "start": "2026-09-25",
-      "end": "2026-09-26",
-      "sale_start": "2026-09-02 16:00",
-      "price": "¥35~40",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1005736"
-    },
-    {
-      "id": "1003738",
-      "name": "成都·2026第38届星幻动漫节",
-      "city": "成都市",
-      "venue": "星空派对·轰趴馆(王府井科华中路店)",
-      "start": "2026-09-26",
-      "end": "2026-09-26",
-      "sale_start": "2026-07-07 16:00",
-      "price": "¥60~568",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1003738"
-    },
     {
       "id": "1004546",
       "name": "成都·第二十五届世界线动漫展-狂撒福利节",
@@ -106,17 +84,6 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1005569"
     },
     {
-      "id": "1006410",
-      "name": "成都·万圣钟声响起前 舟趴 · 明日方舟同人only秋季茶会",
-      "city": "成都市",
-      "venue": "锦官宴",
-      "start": "2026-10-31",
-      "end": "2026-10-31",
-      "sale_start": "2026-09-25 10:00",
-      "price": "¥88",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1006410"
-    },
-    {
       "id": "1003328",
       "name": "成都·第六届JH•TIA动漫电竞展",
       "city": "成都市",
@@ -137,6 +104,17 @@
       "sale_start": "2026-09-21 10:00",
       "price": "¥168~258",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006325"
+    },
+    {
+      "id": "1006410",
+      "name": "成都·万圣钟声响起前 舟趴 · 明日方舟同人only秋季茶会",
+      "city": "成都市",
+      "venue": "锦官宴",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "sale_start": "2026-09-25 10:00",
+      "price": "¥88",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006410"
     },
     {
       "id": "1006338",

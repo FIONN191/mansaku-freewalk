@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30 14:14",
+  "updated": "2026-10-01 14:45",
   "cities": [
     "成都",
     "宜宾",
@@ -27,6 +27,17 @@
       "sale_start": "2026-08-14 16:00",
       "price": "¥55~139",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004941"
+    },
+    {
+      "id": "1005170",
+      "name": "成都·2026物华弥新同人only展",
+      "city": "成都市",
+      "venue": "荼予TuYu新派茶空间",
+      "start": "2026-10-02",
+      "end": "2026-10-02",
+      "sale_start": "2026-09-05 12:30",
+      "price": "¥90",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1005170"
     },
     {
       "id": "1006240",
@@ -73,6 +84,17 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1002585"
     },
     {
+      "id": "1005880",
+      "name": "成都·正版国漫2.5次元《狐妖小红娘 第三部》演唱会2026巡演",
+      "city": "成都市",
+      "venue": "MAOLivehouse 成都",
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "sale_start": "2026-08-31 16:00",
+      "price": "¥99",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1005880"
+    },
+    {
       "id": "1003328",
       "name": "成都·第六届JH•TIA动漫电竞展",
       "city": "成都市",
@@ -82,17 +104,6 @@
       "sale_start": "2026-07-10 09:00",
       "price": "¥70~138",
       "url": "https://show.bilibili.com/platform/detail.html?id=1003328"
-    },
-    {
-      "id": "1006325",
-      "name": "成都·OIMASK覆面盛典同人ONLY",
-      "city": "成都市",
-      "venue": "量子介英雄电竞中心",
-      "start": "2026-10-31",
-      "end": "2026-10-31",
-      "sale_start": "2026-09-21 10:00",
-      "price": "¥168~258",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1006325"
     },
     {
       "id": "1006410",
@@ -115,6 +126,28 @@
       "sale_start": "2026-09-25 12:00",
       "price": "¥78",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006338"
+    },
+    {
+      "id": "1006325",
+      "name": "成都·OIMASK覆面盛典同人ONLY",
+      "city": "成都市",
+      "venue": "量子介英雄电竞中心",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "sale_start": "2026-09-21 10:00",
+      "price": "¥168~258",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006325"
+    },
+    {
+      "id": "1006523",
+      "name": "成都·星幻动漫派对2026第39届",
+      "city": "成都市",
+      "venue": "星野派对(华府大道地铁站A口步行200米)",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "sale_start": "2026-09-28 16:00",
+      "price": "¥60~568",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006523"
     },
     {
       "id": "1005569",

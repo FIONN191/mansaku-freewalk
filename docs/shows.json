@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03 13:57",
+  "updated": "2026-10-04 14:34",
   "cities": [
     "成都",
     "宜宾",
@@ -16,17 +16,6 @@
       "sale_start": "2026-08-04 07:29",
       "price": "¥69.9~88",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004546"
-    },
-    {
-      "id": "1004941",
-      "name": "宜宾·第32届DCT长江国际动漫展.十一周年庆",
-      "city": "宜宾市",
-      "venue": "宜宾岷江新区数字文化中心",
-      "start": "2026-10-01",
-      "end": "2026-10-03",
-      "sale_start": "2026-08-14 16:00",
-      "price": "¥55~139",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1004941"
     },
     {
       "id": "1004357",

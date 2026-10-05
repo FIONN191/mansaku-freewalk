@@ -1,22 +1,11 @@
 {
-  "updated": "2026-10-04 14:34",
+  "updated": "2026-10-05 14:29",
   "cities": [
     "成都",
     "宜宾",
     "遂宁"
   ],
   "shows": [
-    {
-      "id": "1004546",
-      "name": "成都·第二十五届世界线动漫展-狂撒福利节",
-      "city": "成都市",
-      "venue": "中国西部国际博览城",
-      "start": "2026-10-01",
-      "end": "2026-10-04",
-      "sale_start": "2026-08-04 07:29",
-      "price": "¥69.9~88",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1004546"
-    },
     {
       "id": "1004357",
       "name": "成都·TIA动漫电竞展",
@@ -27,28 +16,6 @@
       "sale_start": "2026-07-21 16:00",
       "price": "¥40~103",
       "url": "https://show.bilibili.com/platform/detail.html?id=1004357"
-    },
-    {
-      "id": "1005657",
-      "name": "遂宁·“漫叙”动漫游戏嘉年华",
-      "city": "遂宁市",
-      "venue": "遂宁金城大酒店",
-      "start": "2026-10-04",
-      "end": "2026-10-04",
-      "sale_start": "2026-09-09 07:57",
-      "price": "¥29.9~65",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1005657"
-    },
-    {
-      "id": "1002585",
-      "name": "成都·2026洛天依同人only路展2.0 梦境少女特别展会",
-      "city": "成都市",
-      "venue": "MAOLivehouse 成都",
-      "start": "2026-10-05",
-      "end": "2026-10-05",
-      "sale_start": "2026-06-17 16:00",
-      "price": "¥388~988",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1002585"
     },
     {
       "id": "1003328",

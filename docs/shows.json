@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08 14:55",
+  "updated": "2026-10-09 15:04",
   "cities": [
     "成都",
     "宜宾",
@@ -7,15 +7,15 @@
   ],
   "shows": [
     {
-      "id": "1005880",
-      "name": "成都·正版国漫2.5次元《狐妖小红娘 第三部》演唱会2026巡演",
+      "id": "1006572",
+      "name": "成都·小妖怪 原铁绝同人only展",
       "city": "成都市",
-      "venue": "MAOLivehouse 成都",
+      "venue": "华熙LIVE·528M空间",
       "start": "2026-10-24",
       "end": "2026-10-24",
-      "sale_start": "2026-08-31 16:00",
-      "price": "¥99",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1005880"
+      "sale_start": "2026-09-26 16:00",
+      "price": "¥20~118",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006572"
     },
     {
       "id": "1003328",
@@ -60,17 +60,6 @@
       "sale_start": "2026-09-25 12:00",
       "price": "¥78",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006338"
-    },
-    {
-      "id": "1006523",
-      "name": "成都·星幻动漫派对2026第39届",
-      "city": "成都市",
-      "venue": "星野派对(华府大道地铁站A口步行200米)",
-      "start": "2026-11-15",
-      "end": "2026-11-15",
-      "sale_start": "2026-09-28 16:00",
-      "price": "¥60~568",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1006523"
     },
     {
       "id": "1005569",

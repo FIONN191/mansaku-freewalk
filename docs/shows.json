@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-10 14:36",
+  "updated": "2026-10-11 14:44",
   "cities": [
     "成都",
     "宜宾",
@@ -71,6 +71,17 @@
       "sale_start": "2026-09-25 12:00",
       "price": "¥78",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006338"
+    },
+    {
+      "id": "1006646",
+      "name": "成都·【大乐】致敬大师《天空之城》《千与千寻》《龙猫》宫崎骏&久石让经典动漫视听音乐会",
+      "city": "成都市",
+      "venue": "成都城市音乐厅",
+      "start": "2026-11-01",
+      "end": "2026-11-01",
+      "sale_start": "2026-10-09 16:00",
+      "price": "¥140~240",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006646"
     },
     {
       "id": "1005569",

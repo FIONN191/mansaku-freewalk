@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11 14:44",
+  "updated": "2026-10-12 14:51",
   "cities": [
     "成都",
     "宜宾",
@@ -82,6 +82,17 @@
       "sale_start": "2026-10-09 16:00",
       "price": "¥140~240",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006646"
+    },
+    {
+      "id": "1006523",
+      "name": "成都·星幻动漫派对2026第39届",
+      "city": "成都市",
+      "venue": "星野派对(华府大道地铁站A口步行200米)",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "sale_start": "2026-09-28 16:00",
+      "price": "¥60~568",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006523"
     },
     {
       "id": "1005569",

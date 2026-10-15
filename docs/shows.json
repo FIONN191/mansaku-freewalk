@@ -1,11 +1,22 @@
 {
-  "updated": "2026-10-14 13:42",
+  "updated": "2026-10-15 13:28",
   "cities": [
     "成都",
     "宜宾",
     "遂宁"
   ],
   "shows": [
+    {
+      "id": "1006723",
+      "name": "成都·漫之谷 动漫游戏展",
+      "city": "成都市",
+      "venue": "华熙LIVE·528M空间",
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "sale_start": "2026-10-11 16:00",
+      "price": "¥25~78",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006723"
+    },
     {
       "id": "1006572",
       "name": "成都·小妖怪 原铁绝同人only展",
@@ -84,6 +95,28 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1005569"
     },
     {
+      "id": "1006748",
+      "name": "成都·鸣潮only梦洲弦歌同人展3.0",
+      "city": "成都市",
+      "venue": "成都第一江南酒店",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "sale_start": "2026-10-12 16:00",
+      "price": "¥70~128",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006748"
+    },
+    {
+      "id": "1006724",
+      "name": "宜宾·雾萌动漫游戏嘉年华",
+      "city": "宜宾市",
+      "venue": "叙和金宴(太阳岛店)",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "sale_start": "2026-10-11 16:00",
+      "price": "¥38~109",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006724"
+    },
+    {
       "id": "1005851",
       "name": "成都·永远的7日之都·同人only展〖冬日来信〗九周年",
       "city": "成都市",
@@ -91,7 +124,7 @@
       "start": "2026-11-28",
       "end": "2026-11-28",
       "sale_start": "2026-09-07 16:00",
-      "price": "¥127",
+      "price": "¥127~147",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005851"
     }
   ]

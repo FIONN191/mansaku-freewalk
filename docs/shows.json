@@ -1,22 +1,11 @@
 {
-  "updated": "2026-10-19 13:35",
+  "updated": "2026-10-20 13:37",
   "cities": [
     "成都",
     "宜宾",
     "遂宁"
   ],
   "shows": [
-    {
-      "id": "1006723",
-      "name": "成都·漫之谷 动漫游戏展",
-      "city": "成都市",
-      "venue": "华熙LIVE·528M空间",
-      "start": "2026-10-24",
-      "end": "2026-10-24",
-      "sale_start": "2026-10-11 16:00",
-      "price": "¥25~78",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1006723"
-    },
     {
       "id": "1006572",
       "name": "成都·小妖怪 原铁绝同人only展",
@@ -93,6 +82,39 @@
       "sale_start": "2026-10-09 16:00",
       "price": "¥140~240",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006646"
+    },
+    {
+      "id": "1006723",
+      "name": "成都·漫之谷 动漫游戏展",
+      "city": "成都市",
+      "venue": "华熙LIVE·528M空间",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "sale_start": "2026-10-19 07:17",
+      "price": "¥25~78",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006723"
+    },
+    {
+      "id": "1006810",
+      "name": "金堂·第三届雾萌动漫游戏嘉年华",
+      "city": "成都市",
+      "venue": "未知能量影城（金堂兰天店）",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "sale_start": "2026-10-10 16:00",
+      "price": "¥38~109",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006810"
+    },
+    {
+      "id": "1006523",
+      "name": "成都·星幻动漫派对2026第39届",
+      "city": "成都市",
+      "venue": "星野派对(华府大道地铁站A口步行200米)",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "sale_start": "2026-09-28 16:00",
+      "price": "¥60~568",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006523"
     },
     {
       "id": "1005569",

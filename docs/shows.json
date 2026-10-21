@@ -1,22 +1,11 @@
 {
-  "updated": "2026-10-20 13:37",
+  "updated": "2026-10-21 13:38",
   "cities": [
     "成都",
     "宜宾",
     "遂宁"
   ],
   "shows": [
-    {
-      "id": "1006572",
-      "name": "成都·小妖怪 原铁绝同人only展",
-      "city": "成都市",
-      "venue": "华熙LIVE·528M空间",
-      "start": "2026-10-24",
-      "end": "2026-10-24",
-      "sale_start": "2026-09-26 16:00",
-      "price": "¥20~118",
-      "url": "https://show.bilibili.com/platform/detail.html?id=1006572"
-    },
     {
       "id": "1005880",
       "name": "成都·正版国漫2.5次元《狐妖小红娘 第三部》演唱会2026巡演",
@@ -95,6 +84,17 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006723"
     },
     {
+      "id": "1006572",
+      "name": "成都·小妖怪 原铁绝同人only展",
+      "city": "成都市",
+      "venue": "华熙LIVE·528M空间",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "sale_start": "2026-10-20 09:37",
+      "price": "¥20~118",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006572"
+    },
+    {
       "id": "1006810",
       "name": "金堂·第三届雾萌动漫游戏嘉年华",
       "city": "成都市",
@@ -159,6 +159,17 @@
       "sale_start": "2026-09-07 16:00",
       "price": "¥127~147",
       "url": "https://show.bilibili.com/platform/detail.html?id=1005851"
+    },
+    {
+      "id": "1006814",
+      "name": "成都·守望先锋同人only 4.0",
+      "city": "成都市",
+      "venue": "成都星宸假日酒店(世纪城店)",
+      "start": "2026-12-19",
+      "end": "2026-12-19",
+      "sale_start": "2026-10-30 16:00",
+      "price": "¥108~178",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006814"
     }
   ]
 }

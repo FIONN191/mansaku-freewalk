@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22 13:39",
+  "updated": "2026-10-23 13:39",
   "cities": [
     "成都",
     "宜宾",
@@ -104,6 +104,17 @@
       "sale_start": "2026-10-11 16:00",
       "price": "¥38~109",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006724"
+    },
+    {
+      "id": "1006971",
+      "name": "遂宁·AG动漫游戏嘉年华",
+      "city": "遂宁市",
+      "venue": "遂宁金城大酒店",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "sale_start": "2026-10-21 16:00",
+      "price": "¥29.9~65",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006971"
     },
     {
       "id": "1005851",

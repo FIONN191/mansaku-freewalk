@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23 13:39",
+  "updated": "2026-10-24 13:17",
   "cities": [
     "成都",
     "宜宾",
@@ -51,6 +51,17 @@
       "url": "https://show.bilibili.com/platform/detail.html?id=1006646"
     },
     {
+      "id": "1007041",
+      "name": "成都·MD签售会",
+      "city": "成都市",
+      "venue": "天府国际动漫城",
+      "start": "2026-11-08",
+      "end": "2026-11-08",
+      "sale_start": "2026-10-23 16:00",
+      "price": "¥88~618",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1007041"
+    },
+    {
       "id": "1006723",
       "name": "成都·漫之谷 动漫游戏展",
       "city": "成都市",
@@ -71,6 +82,39 @@
       "sale_start": "2026-10-20 09:37",
       "price": "¥20~118",
       "url": "https://show.bilibili.com/platform/detail.html?id=1006572"
+    },
+    {
+      "id": "1007038",
+      "name": "成都·渡尽尘霜左慈同人only",
+      "city": "成都市",
+      "venue": "菩提茶空间",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "sale_start": "2026-10-23 11:00",
+      "price": "¥128",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1007038"
+    },
+    {
+      "id": "1006810",
+      "name": "金堂·第三届雾萌动漫游戏嘉年华",
+      "city": "成都市",
+      "venue": "未知能量影城（金堂兰天店）",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "sale_start": "2026-10-10 16:00",
+      "price": "¥38~109",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006810"
+    },
+    {
+      "id": "1006523",
+      "name": "成都·星幻动漫派对2026第39届",
+      "city": "成都市",
+      "venue": "星野派对(华府大道地铁站A口步行200米)",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "sale_start": "2026-09-28 16:00",
+      "price": "¥60~568",
+      "url": "https://show.bilibili.com/platform/detail.html?id=1006523"
     },
     {
       "id": "1005569",
